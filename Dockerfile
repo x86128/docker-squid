@@ -17,4 +17,5 @@ COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 
 EXPOSE 3128/tcp
+USER proxy
 ENTRYPOINT ["/sbin/entrypoint.sh"]
