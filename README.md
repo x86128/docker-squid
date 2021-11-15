@@ -146,6 +146,22 @@ docker exec -it squid tail -f /var/log/squid/access.log
 
 You can also mount a volume at `/var/log/squid/` so that the logs are directly accessible on the host.
 
+To redirect logs to `stdout` apply following:
+
+Dockerfile:
+
+`USER proxy`
+
+In squid.conf:
+
+```
+# Log to stdout
+access_log stdio:/dev/stdout
+pid_filename /tmp/squid.pid
+```
+
+https://github.com/fredsig/docker-squid/releases/tag/v3.5.27-2-stdout-2
+
 # Maintenance
 
 ## Upgrading
